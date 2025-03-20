@@ -55,3 +55,4 @@ plugins:
 #   - vendor/ruby/
 exclude:
   - venv/
+  - Libro_J/
