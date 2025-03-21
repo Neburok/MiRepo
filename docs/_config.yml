@@ -1,0 +1,33 @@
+title: "Repositorio de Semiconductores"
+description: "Material educativo y de investigación sobre semiconductores"
+baseurl: "" # Déjalo vacío si estás en la raíz del repositorio
+url: "https://neburok.github.io" # Reemplázalo con tu usuario o dominio
+
+# Configuración para GitHub Pages
+theme: null
+markdown: kramdown
+permalink: pretty
+
+# theme: minima # O cualquier otro tema compatible
+# plugins:
+#  - jekyll-feed
+#  - jekyll-seo-tag
+
+# Carpeta para GitHub Pages
+include:
+  - docs
+
+# Excluir archivos innecesarios en la compilación
+exclude:
+  - README.md
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - _site
+
+# Configuración para Jupyter Book (si lo integras)
+collections:
+  libros:
+    output: true
+    permalink: /:collection/:path/

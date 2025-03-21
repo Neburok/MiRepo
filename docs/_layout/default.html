@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositorio de Semiconductores</title>
+    <title>{{ page.title }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #440606;
+            background-color: #f4f4f4;
             text-align: center;
         }
         .header {
-            background: url('assets/abstract_semiconductors.jpg') no-repeat center center/cover;
-            color: blue;
+            background: url('{{ site.baseurl }}/assets/abstract_semiconductors.jpg') no-repeat center center/cover;
+            color: white;
             padding: 60px 20px;
         }
         .content {
@@ -41,16 +41,7 @@
         <p>Material educativo y de investigación sobre semiconductores</p>
     </div>
     <div class="content">
-        <h2>Temas Principales</h2>
-        <ul class="topics">
-            <li><a href="#fisica-estado-solido">Física del Estado Sólido</a></li>
-            <li><a href="#dispositivos-electronicos">Dispositivos Electrónicos</a></li>
-            <li><a href="#microelectronica">Microelectrónica</a></li>
-            <li><a href="#nanotecnologia">Nanotecnología y Semiconductores</a></li>
-            <li><a href="#fabricacion">Procesos de Fabricación</a></li>
-        </ul>
+        {{ content }}
     </div>
 </body>
-</html>
-
 </html>
