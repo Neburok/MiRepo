@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<div class="lecture-container">
+  <div class="lecture-header">
+    <h1 class="lecture-title">{{ page.title }}</h1>
+    <p class="lecture-meta">
+      {% if page.subject %}<span class="subject-label">Asignatura: {{ page.subject }}</span>{% endif %}
+      {% if page.level %}<span class="level-label">Nivel: {{ page.level }}</span>{% endif %}
+      {% if page.authors %}<span class="authors-label">Autor(es): {{ page.authors | join: ", " }}</span>{% endif %}
+      {% if page.last_updated %}<span class="update-label">Última actualización: {{ page.last_updated | date: "%d/%m/%Y" }}</span>{% endif %}
+    </p>
+  </div>
+
+  {% if page.toc %}
+  <div class="lecture-toc">
+    <h2>Contenido</h2>
+    {% include toc.html html=content %}
+  </div>
+  {% endif %}
+
+  <div class="lecture-content">
+    {{ content }}
+  </div>
+
+  {% if page.references %}
+  <div class="lecture-references">
+    <h2>Referencias</h2>
+    <ul>
+      {% for reference in page.references %}
+      <li>{{ reference }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if page.further_reading %}
+  <div class="lecture-further-reading">
+    <h2>Lecturas Adicionales</h2>
+    <ul>
+      {% for reading in page.further_reading %}
+      <li>{{ reading }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>

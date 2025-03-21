@@ -1,0 +1,72 @@
+---
+layout: default
+---
+<div class="simulation-container">
+  <div class="simulation-header">
+    <h1 class="simulation-title">{{ page.title }}</h1>
+    <p class="simulation-meta">
+      {% if page.subject %}<span class="subject-label">Asignatura: {{ page.subject }}</span>{% endif %}
+      {% if page.complexity %}<span class="complexity-label">Complejidad: {{ page.complexity }}</span>{% endif %}
+      {% if page.tech_stack %}<span class="tech-label">Tecnología: {{ page.tech_stack | join: ", " }}</span>{% endif %}
+      {% if page.last_updated %}<span class="update-label">Última actualización: {{ page.last_updated | date: "%d/%m/%Y" }}</span>{% endif %}
+    </p>
+  </div>
+
+  {% if page.description %}
+  <div class="simulation-description">
+    <h2>Descripción</h2>
+    <p>{{ page.description }}</p>
+  </div>
+  {% endif %}
+
+  {% if page.theory %}
+  <div class="simulation-theory">
+    <h2>Fundamento Teórico</h2>
+    {{ page.theory | markdownify }}
+  </div>
+  {% endif %}
+
+  <div class="simulation-content">
+    <h2>Simulación</h2>
+    <div class="simulation-frame">
+      {% if page.iframe_url %}
+        <iframe src="{{ page.iframe_url }}" width="100%" height="600px" frameborder="0"></iframe>
+      {% elsif page.js_component %}
+        <div id="simulation-app" class="simulation-app">
+          <!-- El componente JS se cargará aquí -->
+        </div>
+        <script src="{{ site.baseurl }}/assets/js/simulations/{{ page.js_component }}"></script>
+      {% else %}
+        <div class="simulation-placeholder">
+          <!-- Contenido alternativo si no hay simulación disponible -->
+          <p>La visualización interactiva está en desarrollo.</p>
+        </div>
+      {% endif %}
+    </div>
+    <div class="simulation-controls">
+      {{ content }}
+    </div>
+  </div>
+
+  {% if page.exercises %}
+  <div class="simulation-exercises">
+    <h2>Ejercicios Propuestos</h2>
+    <ol>
+      {% for exercise in page.exercises %}
+      <li>{{ exercise }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+  {% endif %}
+
+  {% if page.references %}
+  <div class="simulation-references">
+    <h2>Referencias</h2>
+    <ul>
+      {% for reference in page.references %}
+      <li>{{ reference }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>

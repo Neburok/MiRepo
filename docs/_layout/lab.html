@@ -1,0 +1,62 @@
+---
+layout: default
+---
+<div class="lab-container">
+  <div class="lab-header">
+    <h1 class="lab-title">{{ page.title }}</h1>
+    <p class="lab-meta">
+      {% if page.subject %}<span class="subject-label">Asignatura: {{ page.subject }}</span>{% endif %}
+      {% if page.duration %}<span class="duration-label">Duración: {{ page.duration }}</span>{% endif %}
+      {% if page.difficulty %}<span class="difficulty-label">Dificultad: {{ page.difficulty }}</span>{% endif %}
+      {% if page.last_updated %}<span class="update-label">Última actualización: {{ page.last_updated | date: "%d/%m/%Y" }}</span>{% endif %}
+    </p>
+  </div>
+
+  {% if page.objectives %}
+  <div class="lab-objectives">
+    <h2>Objetivos</h2>
+    <ul>
+      {% for objective in page.objectives %}
+      <li>{{ objective }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if page.materials %}
+  <div class="lab-materials">
+    <h2>Materiales y Equipos</h2>
+    <ul>
+      {% for material in page.materials %}
+      <li>{{ material }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="lab-content">
+    {{ content }}
+  </div>
+
+  {% if page.questions %}
+  <div class="lab-questions">
+    <h2>Preguntas de Análisis</h2>
+    <ol>
+      {% for question in page.questions %}
+      <li>{{ question }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+  {% endif %}
+
+  {% if page.references %}
+  <div class="lab-references">
+    <h2>Referencias</h2>
+    <ul>
+      {% for reference in page.references %}
+      <li>{{ reference }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>

@@ -1,12 +1,13 @@
 title: "Repositorio de Semiconductores"
 description: "Material educativo y de investigación sobre semiconductores"
-baseurl: "" # Déjalo vacío si estás en la raíz del repositorio
+baseurl: "/MiRepo"
 url: "https://neburok.github.io" # Reemplázalo con tu usuario o dominio
 
 # Configuración para GitHub Pages
 theme: null
 markdown: kramdown
 permalink: pretty
+highlighter: rouge
 
 # theme: minima # O cualquier otro tema compatible
 # plugins:
@@ -25,9 +26,43 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - _site
+  - venv/
+  - Libro_J
 
 # Configuración para Jupyter Book (si lo integras)
 collections:
   libros:
     output: true
     permalink: /:collection/:path/
+  fundamentos:
+    output: true
+    permalink: /:collection/:path/
+  electronica:
+    output: true
+    permalink: /:collection/:path/
+  fabricacion:
+    output: true
+    permalink: /:collection/:path/
+  diseno_circuitos:
+    output: true
+    permalink: /:collection/:path/
+  instrumentacion:
+    output: true
+    permalink: /:collection/:path/
+  programacion:
+    output: true
+    permalink: /:collection/:path/
+
+# Configuración de compilación
+
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Plugins útiles
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-relative-links
+  - jekyll-optional-front-matter

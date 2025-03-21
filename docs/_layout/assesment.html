@@ -1,0 +1,74 @@
+---
+layout: default
+---
+<div class="assessment-container">
+  <div class="assessment-header">
+    <h1 class="assessment-title">{{ page.title }}</h1>
+    <p class="assessment-meta">
+      {% if page.subject %}<span class="subject-label">Asignatura: {{ page.subject }}</span>{% endif %}
+      {% if page.difficulty %}<span class="difficulty-label">Dificultad: {{ page.difficulty }}</span>{% endif %}
+      {% if page.estimated_time %}<span class="time-label">Tiempo estimado: {{ page.estimated_time }}</span>{% endif %}
+      {% if page.last_updated %}<span class="update-label">Última actualización: {{ page.last_updated | date: "%d/%m/%Y" }}</span>{% endif %}
+    </p>
+  </div>
+
+  {% if page.description %}
+  <div class="assessment-description">
+    <h2>Descripción</h2>
+    <p>{{ page.description }}</p>
+  </div>
+  {% endif %}
+
+  {% if page.prerequisites %}
+  <div class="assessment-prerequisites">
+    <h2>Requisitos Previos</h2>
+    <ul>
+      {% for prereq in page.prerequisites %}
+      <li>{{ prereq }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="assessment-content">
+    {{ content }}
+  </div>
+
+  {% if page.solutions_available %}
+  <div class="assessment-solutions">
+    <button id="toggle-solutions" class="btn btn-primary">Mostrar/Ocultar Soluciones</button>
+    <div id="solutions-content" class="solutions-content" style="display: none;">
+      {% if page.solutions %}
+        <h2>Soluciones</h2>
+        {% for solution in page.solutions %}
+        <div class="solution-item">
+          <h3>Ejercicio {{ forloop.index }}</h3>
+          {{ solution | markdownify }}
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  <script>
+    document.getElementById('toggle-solutions').addEventListener('click', function() {
+      var solutionsContent = document.getElementById('solutions-content');
+      if (solutionsContent.style.display === 'none') {
+        solutionsContent.style.display = 'block';
+      } else {
+        solutionsContent.style.display = 'none';
+      }
+    });
+  </script>
+  {% endif %}
+
+  {% if page.references %}
+  <div class="assessment-references">
+    <h2>Referencias</h2>
+    <ul>
+      {% for reference in page.references %}
+      <li>{{ reference }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>
