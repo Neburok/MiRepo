@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: "Repositorio Educativo en Ingeniería de Semiconductores"
 ---
 
@@ -9,7 +9,7 @@ Bienvenido al repositorio integral para la licenciatura en ingeniería en semico
 
 ## Áreas Temáticas
 
-### [Fundamentos Físicos](/fundamentos/)
+### [Fundamentos Físicos](/_fundamentos/)
 - Física del Estado Sólido
 - Electromagnetismo
 - Mecánica Cuántica
@@ -59,7 +59,7 @@ Bienvenido al repositorio integral para la licenciatura en ingeniería en semico
   <div class="course-card">
     <h3>Física del Estado Sólido</h3>
     <p>Fundamentos de la estructura cristalina, bandas de energía, portadores de carga y propiedades eléctricas de los materiales.</p>
-    <a href="/fundamentos/fisica_estado_solido/" class="btn">Explorar curso</a>
+    <a href="/_fundamentos/fisica_estado_solido/" class="btn">Explorar curso</a>
   </div>
   
   <div class="course-card">
